@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referensi · Modul Menulis Tujuan Pembelajaran</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .ref-list { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; }
+
+    .ref-card {
+      background: var(--white);
+      border: 1px solid var(--gray);
+      border-radius: 4px;
+      padding: 22px 24px;
+      display: flex; gap: 20px; align-items: flex-start;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .ref-card:hover { border-color: var(--navy); transform: translateX(4px); }
+
+    .ref-icon {
+      font-size: 1.6rem; flex-shrink: 0;
+      width: 48px; height: 48px;
+      background: var(--off-white);
+      border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .ref-type {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 4px;
+    }
+
+    .ref-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--navy2); margin-bottom: 4px;
+    }
+
+    .ref-author { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+    .ref-desc { font-size: 12.5px; color: var(--muted); line-height: 1.6; }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-title">
+      <span></span> Modul Menulis Tujuan Pembelajaran
+    </a>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="bloom.html">Taksonomi Bloom</a>
+      <a href="abcd.html">Metode ABCD</a>
+      <a href="latihan.html">Latihan</a>
+      <a href="referensi.html" class="active">Referensi</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-breadcrumb fade-up">Bagian 04</div>
+    <h1 class="fade-up delay-1">Referensi &amp; <em>Bacaan Lanjut</em></h1>
+    <p class="fade-up delay-2">Kumpulan sumber bacaan terpilih untuk memperdalam pemahaman tentang penulisan tujuan pembelajaran, desain instruksional, dan asesmen berbasis kompetensi.</p>
+  </div>
+</section>
+
+<main>
+
+  <!-- BUKU -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Buku Rujukan Utama</div>
+    <h2>Buku yang Direkomendasikan</h2>
+
+    <div class="ref-list">
+      <div class="ref-card fade-up">
+        <div class="ref-icon">📗</div>
+        <div>
+          <div class="ref-type">Buku · Foundational</div>
+          <div class="ref-title">Preparing Instructional Objectives</div>
+          <div class="ref-author">Robert F. Mager · 1962, edisi revisi 1997</div>
+          <div class="ref-desc">Referensi klasik yang memperkenalkan konsep penulisan tujuan pembelajaran yang terukur dan dapat diobservasi. Mager adalah tokoh yang mempopulerkan pendekatan ABCD dalam konteks desain instruksional.</div>
+        </div>
+      </div>
+
+      <div class="ref-card fade-up delay-1">
+        <div class="ref-icon">📘</div>
+        <div>
+          <div class="ref-type">Buku · Taksonomi</div>
+          <div class="ref-title">A Taxonomy for Learning, Teaching, and Assessing</div>
+          <div class="ref-author">Anderson, L.W. & Krathwohl, D.R. · 2001</div>
+          <div class="ref-desc">Revisi komprehensif dari Taksonomi Bloom orisinal tahun 1956. Buku ini mengubah kata benda menjadi kata kerja dan menambahkan dimensi pengetahuan sebagai sumbu kedua dalam taksonomi.</div>
+        </div>
+      </div>
+
+      <div class="ref-card fade-up delay-2">
+        <div class="ref-icon">📙</div>
+        <div>
+          <div class="ref-type">Buku · Praktis</div>
+          <div class="ref-title">Design for How People Learn</div>
+          <div class="ref-author">Julie Dirksen · 2015</div>
+          <div class="ref-desc">Panduan praktis berbasis ilmu kognitif untuk merancang pengalaman belajar yang efektif. Membahas cara menghubungkan tujuan pembelajaran dengan strategi pengajaran yang tepat sasaran.</div>
+        </div>
+      </div>
+
+      <div class="ref-card fade-up delay-3">
+        <div class="ref-icon">📕</div>
+        <div>
+          <div class="ref-type">Buku · Asesmen</div>
+          <div class="ref-title">Classroom Assessment Techniques</div>
+          <div class="ref-author">Angelo, T.A. & Cross, K.P. · 1993</div>
+          <div class="ref-desc">Buku komprehensif tentang teknik asesmen formatif di kelas perguruan tinggi. Sangat relevan untuk memahami bagaimana tujuan pembelajaran dihubungkan dengan strategi evaluasi.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARTIKEL -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Artikel & Jurnal</div>
+    <h2>Bacaan Akademik Terpilih</h2>
+
+    <div class="ref-list">
+      <div class="ref-card fade-up">
+        <div class="ref-icon">📄</div>
+        <div>
+          <div class="ref-type">Jurnal · Taksonomi</div>
+          <div class="ref-title">Bloom's Taxonomy Revisited: Specifying Assessable Learning Objectives in Education</div>
+          <div class="ref-author">Forehand, M. · 2010 · University of Georgia</div>
+          <div class="ref-desc">Artikel yang menjelaskan penerapan praktis Taksonomi Bloom yang telah direvisi dalam konteks perancangan tujuan pembelajaran dan asesmen di perguruan tinggi.</div>
+        </div>
+      </div>
+
+      <div class="ref-card fade-up delay-1">
+        <div class="ref-icon">📄</div>
+        <div>
+          <div class="ref-type">Jurnal · Kurikulum</div>
+          <div class="ref-title">Writing Measurable Learning Outcomes</div>
+          <div class="ref-author">Heer, R. · 2012 · Iowa State University</div>
+          <div class="ref-desc">Panduan praktis penulisan tujuan pembelajaran yang terukur, lengkap dengan contoh kata kerja operasional per level Taksonomi Bloom dan kesalahan umum yang perlu dihindari.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUMBER ONLINE -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Sumber Online</div>
+    <h2>Referensi Digital</h2>
+
+    <div class="ref-list">
+      <div class="ref-card fade-up">
+        <div class="ref-icon">🌐</div>
+        <div>
+          <div class="ref-type">Website · Interaktif</div>
+          <div class="ref-title">Bloom's Taxonomy Wheel — Iowa State University</div>
+          <div class="ref-author">celt.iastate.edu</div>
+          <div class="ref-desc">Sumber daring terpercaya yang menyediakan roda Taksonomi Bloom interaktif lengkap dengan kata kerja, kegiatan pembelajaran, dan contoh produk penilaian untuk setiap level.</div>
+        </div>
+      </div>
+
+      <div class="ref-card fade-up delay-1">
+        <div class="ref-icon">🌐</div>
+        <div>
+          <div class="ref-type">Website · Panduan</div>
+          <div class="ref-title">Writing Learning Outcomes — University of Toronto</div>
+          <div class="ref-author">teaching.utoronto.ca</div>
+          <div class="ref-desc">Panduan komprehensif dari salah satu universitas terkemuka tentang cara menulis tujuan pembelajaran yang efektif, dilengkapi contoh dari berbagai disiplin ilmu.</div>
+        </div>
+      </div>
+
+      <div class="ref-card fade-up delay-2">
+        <div class="ref-icon">🌐</div>
+        <div>
+          <div class="ref-type">Website · Komunitas</div>
+          <div class="ref-title">ATD — Association for Talent Development</div>
+          <div class="ref-author">td.org</div>
+          <div class="ref-desc">Portal komunitas dan riset terbesar di bidang Learning & Development secara global. Menyediakan artikel, riset, dan standar industri terkini seputar desain instruksional dan pengembangan kompetensi.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA KEMBALI -->
+  <section style="
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 40px;
+    text-align: center;
+  ">
+    <h2 style="color: var(--white); margin-bottom: 10px;">Siap Mempraktikkan?</h2>
+    <p style="color: #8a9ab8; max-width: 440px; margin: 0 auto 24px;">Kembali ke halaman latihan dan terapkan pemahaman Anda dengan menulis tujuan pembelajaran untuk mata kuliah yang Anda ampu.</p>
+    <a href="latihan.html" class="btn-primary">Kembali ke Latihan →</a>
+  </section>
+
+  <div style="margin-top: 32px;">
+    <a href="latihan.html" class="btn-ghost">← Halaman Latihan</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>Modul <strong>Menulis Tujuan Pembelajaran</strong> · Dikembangkan untuk mendukung kualitas pengajaran di perguruan tinggi</p>
+  </div>
+</footer>
+
+</body>
+</html>

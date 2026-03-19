@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Taksonomi Bloom · Modul Menulis Tujuan Pembelajaran</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .bloom-pyramid {
+      display: flex; flex-direction: column; gap: 6px;
+      margin: 32px 0; max-width: 600px;
+    }
+
+    .bloom-level {
+      display: flex; align-items: center; gap: 16px;
+      padding: 16px 24px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: transform .2s;
+      position: relative;
+    }
+
+    .bloom-level:hover { transform: translateX(6px); }
+
+    .bloom-level.active { box-shadow: 4px 0 0 var(--gold) inset; }
+
+    .level-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 700;
+      color: rgba(255,255,255,.3);
+      width: 32px; flex-shrink: 0;
+      line-height: 1;
+    }
+
+    .level-content { flex: 1; }
+
+    .level-name {
+      font-weight: 600; font-size: 14px;
+      color: white; letter-spacing: .04em;
+    }
+
+    .level-desc {
+      font-size: 12px; color: rgba(255,255,255,.6);
+      margin-top: 2px;
+    }
+
+    .level-tag {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: .1em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 2px;
+      background: rgba(255,255,255,.15);
+      color: rgba(255,255,255,.8);
+      flex-shrink: 0;
+    }
+
+    /* level colors - low to high */
+    .bloom-level:nth-child(6) { background: #1b4f72; }
+    .bloom-level:nth-child(5) { background: #1a5276; }
+    .bloom-level:nth-child(4) { background: #154360; }
+    .bloom-level:nth-child(3) { background: #1f618d; }
+    .bloom-level:nth-child(2) { background: #2471a3; }
+    .bloom-level:nth-child(1) { background: #2e86c1; }
+
+    .detail-panel {
+      background: var(--white);
+      border: 1px solid var(--gray);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 4px 4px 0;
+      padding: 28px;
+      margin-top: 16px;
+      display: none;
+      animation: fadeUp .3s ease both;
+    }
+
+    .detail-panel.show { display: block; }
+
+    .verb-grid {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-top: 12px;
+    }
+
+    .verb-pill {
+      font-size: 12px; font-weight: 500;
+      background: var(--navy); color: var(--white);
+      padding: 4px 12px; border-radius: 20px;
+    }
+
+    .example-box {
+      background: var(--off-white);
+      border: 1px solid var(--gray);
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      font-size: 13.5px;
+      color: var(--navy2);
+      font-style: italic;
+    }
+
+    .example-box strong {
+      display: block;
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-title">
+      <span></span> Modul Menulis Tujuan Pembelajaran
+    </a>
+    <nav>
+      <a href="index.html">Beranda</a>
+      <a href="bloom.html" class="active">Taksonomi Bloom</a>
+      <a href="abcd.html">Metode ABCD</a>
+      <a href="latihan.html">Latihan</a>
+      <a href="referensi.html">Referensi</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-breadcrumb fade-up">Bagian 01</div>
+    <h1 class="fade-up delay-1">Taksonomi <em>Bloom</em></h1>
+    <p class="fade-up delay-2">Kerangka hierarki kemampuan kognitif yang menjadi landasan dalam merumuskan tujuan pembelajaran yang tepat, terukur, dan sesuai dengan level kemampuan yang diharapkan.</p>
+  </div>
+</section>
+
+<main>
+
+  <!-- PENGANTAR -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Latar Belakang</div>
+    <h2>Apa itu Taksonomi Bloom?</h2>
+    <p>Taksonomi Bloom adalah kerangka klasifikasi tujuan pendidikan yang dikembangkan oleh Benjamin Bloom dan rekan-rekannya pada tahun 1956, kemudian direvisi oleh Anderson dan Krathwohl pada tahun 2001.</p>
+    <p>Kerangka ini mengidentifikasi enam level kemampuan kognitif secara hierarkis — dari yang paling sederhana hingga yang paling kompleks. Setiap level memerlukan penguasaan level sebelumnya sebagai prasyarat.</p>
+
+    <blockquote>
+      <p>"Taksonomi Bloom membantu pendidik untuk tidak hanya mengajarkan fakta, tetapi juga membangun kemampuan berpikir tingkat tinggi."</p>
+    </blockquote>
+  </section>
+
+  <!-- PYRAMID INTERAKTIF -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Enam Level Kognitif</div>
+    <h2>Klik Level untuk Melihat Detail</h2>
+    <p>Piramida di bawah menampilkan keenam level dari yang tertinggi (paling kompleks) hingga terendah (paling dasar). Klik setiap level untuk melihat kata kerja dan contoh tujuan pembelajaran.</p>
+
+    <div class="bloom-pyramid" id="pyramid">
+
+      <div class="bloom-level" onclick="toggleLevel(this, 'mencipta')">
+        <div class="level-num">6</div>
+        <div class="level-content">
+          <div class="level-name">Mencipta (Create)</div>
+          <div class="level-desc">Menghasilkan sesuatu yang baru dan orisinal</div>
+        </div>
+        <div class="level-tag">HOTS</div>
+      </div>
+
+      <div class="bloom-level" onclick="toggleLevel(this, 'mengevaluasi')">
+        <div class="level-num">5</div>
+        <div class="level-content">
+          <div class="level-name">Mengevaluasi (Evaluate)</div>
+          <div class="level-desc">Membuat penilaian berdasarkan kriteria</div>
+        </div>
+        <div class="level-tag">HOTS</div>
+      </div>
+
+      <div class="bloom-level" onclick="toggleLevel(this, 'menganalisis')">
+        <div class="level-num">4</div>
+        <div class="level-content">
+          <div class="level-name">Menganalisis (Analyze)</div>
+          <div class="level-desc">Memecah informasi menjadi bagian-bagian</div>
+        </div>
+        <div class="level-tag">HOTS</div>
+      </div>
+
+      <div class="bloom-level" onclick="toggleLevel(this, 'menerapkan')">
+        <div class="level-num">3</div>
+        <div class="level-content">
+          <div class="level-name">Menerapkan (Apply)</div>
+          <div class="level-desc">Menggunakan pengetahuan dalam situasi baru</div>
+        </div>
+        <div class="level-tag">LOTS</div>
+      </div>
+
+      <div class="bloom-level" onclick="toggleLevel(this, 'memahami')">
+        <div class="level-num">2</div>
+        <div class="level-content">
+          <div class="level-name">Memahami (Understand)</div>
+          <div class="level-desc">Menjelaskan ide atau konsep</div>
+        </div>
+        <div class="level-tag">LOTS</div>
+      </div>
+
+      <div class="bloom-level" onclick="toggleLevel(this, 'mengingat')">
+        <div class="level-num">1</div>
+        <div class="level-content">
+          <div class="level-name">Mengingat (Remember)</div>
+          <div class="level-desc">Mengambil kembali pengetahuan dari memori</div>
+        </div>
+        <div class="level-tag">LOTS</div>
+      </div>
+
+    </div>
+
+    <!-- DETAIL PANELS -->
+    <div id="detail-mencipta" class="detail-panel">
+      <h3>Level 6 — Mencipta (Create)</h3>
+      <p>Mahasiswa mampu menghasilkan produk, ide, atau solusi baru yang orisinal dengan mengintegrasikan berbagai pengetahuan yang telah dipelajari.</p>
+      <div class="verb-grid">
+        <span class="verb-pill">Merancang</span><span class="verb-pill">Membuat</span>
+        <span class="verb-pill">Mengembangkan</span><span class="verb-pill">Menyusun</span>
+        <span class="verb-pill">Merumuskan</span><span class="verb-pill">Mengonstruksi</span>
+        <span class="verb-pill">Menghasilkan</span><span class="verb-pill">Merencanakan</span>
+      </div>
+      <div class="example-box">
+        <strong>Contoh Tujuan Pembelajaran</strong>
+        Mahasiswa mampu merancang kurikulum pelatihan karyawan baru yang mencakup analisis kebutuhan, tujuan pembelajaran, dan strategi evaluasi.
+      </div>
+    </div>
+
+    <div id="detail-mengevaluasi" class="detail-panel">
+      <h3>Level 5 — Mengevaluasi (Evaluate)</h3>
+      <p>Mahasiswa mampu membuat penilaian atau keputusan berdasarkan kriteria dan standar tertentu, baik yang ditetapkan secara internal maupun eksternal.</p>
+      <div class="verb-grid">
+        <span class="verb-pill">Menilai</span><span class="verb-pill">Mengkritisi</span>
+        <span class="verb-pill">Mempertahankan</span><span class="verb-pill">Mengevaluasi</span>
+        <span class="verb-pill">Membenarkan</span><span class="verb-pill">Memilih</span>
+        <span class="verb-pill">Memprioritaskan</span><span class="verb-pill">Memutuskan</span>
+      </div>
+      <div class="example-box">
+        <strong>Contoh Tujuan Pembelajaran</strong>
+        Mahasiswa mampu mengevaluasi efektivitas program pelatihan menggunakan model Kirkpatrick dengan menganalisis data dari minimal tiga sumber.
+      </div>
+    </div>
+
+    <div id="detail-menganalisis" class="detail-panel">
+      <h3>Level 4 — Menganalisis (Analyze)</h3>
+      <p>Mahasiswa mampu memecah materi menjadi komponen-komponen penyusunnya dan menentukan hubungan antar komponen tersebut.</p>
+      <div class="verb-grid">
+        <span class="verb-pill">Membedakan</span><span class="verb-pill">Mengorganisasi</span>
+        <span class="verb-pill">Mengatribusikan</span><span class="verb-pill">Menguraikan</span>
+        <span class="verb-pill">Membandingkan</span><span class="verb-pill">Mengintegrasikan</span>
+        <span class="verb-pill">Menstrukturkan</span><span class="verb-pill">Mendekonstruksi</span>
+      </div>
+      <div class="example-box">
+        <strong>Contoh Tujuan Pembelajaran</strong>
+        Mahasiswa mampu membandingkan model desain instruksional ADDIE dan SAM berdasarkan lima kriteria: fleksibilitas, waktu, biaya, kualitas, dan skalabilitas.
+      </div>
+    </div>
+
+    <div id="detail-menerapkan" class="detail-panel">
+      <h3>Level 3 — Menerapkan (Apply)</h3>
+      <p>Mahasiswa mampu menggunakan prosedur atau pengetahuan yang telah dipelajari dalam situasi atau konteks yang baru dan berbeda.</p>
+      <div class="verb-grid">
+        <span class="verb-pill">Menggunakan</span><span class="verb-pill">Melaksanakan</span>
+        <span class="verb-pill">Menerapkan</span><span class="verb-pill">Mendemonstrasikan</span>
+        <span class="verb-pill">Menghitung</span><span class="verb-pill">Memecahkan</span>
+        <span class="verb-pill">Mempraktikkan</span><span class="verb-pill">Mengoperasikan</span>
+      </div>
+      <div class="example-box">
+        <strong>Contoh Tujuan Pembelajaran</strong>
+        Mahasiswa mampu menerapkan metode ABCD dalam menulis tujuan pembelajaran untuk tiga mata kuliah berbeda di program studi mereka.
+      </div>
+    </div>
+
+    <div id="detail-memahami" class="detail-panel">
+      <h3>Level 2 — Memahami (Understand)</h3>
+      <p>Mahasiswa mampu mengonstruksi makna dari pesan instruksional, baik secara lisan, tertulis, maupun grafis.</p>
+      <div class="verb-grid">
+        <span class="verb-pill">Menjelaskan</span><span class="verb-pill">Menginterpretasi</span>
+        <span class="verb-pill">Mencontohkan</span><span class="verb-pill">Mengklasifikasi</span>
+        <span class="verb-pill">Meringkas</span><span class="verb-pill">Menyimpulkan</span>
+        <span class="verb-pill">Membandingkan</span><span class="verb-pill">Mendeskripsikan</span>
+      </div>
+      <div class="example-box">
+        <strong>Contoh Tujuan Pembelajaran</strong>
+        Mahasiswa mampu menjelaskan perbedaan antara tujuan pembelajaran umum dan tujuan pembelajaran khusus dengan menggunakan contoh dari bidang studi mereka sendiri.
+      </div>
+    </div>
+
+    <div id="detail-mengingat" class="detail-panel">
+      <h3>Level 1 — Mengingat (Remember)</h3>
+      <p>Mahasiswa mampu mengambil kembali pengetahuan yang relevan dari memori jangka panjang — fakta, definisi, atau konsep dasar.</p>
+      <div class="verb-grid">
+        <span class="verb-pill">Menyebutkan</span><span class="verb-pill">Mendefinisikan</span>
+        <span class="verb-pill">Mengidentifikasi</span><span class="verb-pill">Mengenali</span>
+        <span class="verb-pill">Mengingat kembali</span><span class="verb-pill">Mendaftarkan</span>
+        <span class="verb-pill">Menyatakan</span><span class="verb-pill">Mereproduksi</span>
+      </div>
+      <div class="example-box">
+        <strong>Contoh Tujuan Pembelajaran</strong>
+        Mahasiswa mampu menyebutkan enam level Taksonomi Bloom beserta kata kerja operasional yang sesuai untuk masing-masing level.
+      </div>
+    </div>
+
+  </section>
+
+  <!-- TABEL RINGKASAN -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Ringkasan</div>
+    <h2>Tabel Referensi Cepat</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Nama</th>
+          <th>Kata Kunci</th>
+          <th>Kategori</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>6</td><td>Mencipta</td><td>Merancang, Membuat, Mengembangkan</td><td>HOTS</td></tr>
+        <tr><td>5</td><td>Mengevaluasi</td><td>Menilai, Mengkritisi, Memutuskan</td><td>HOTS</td></tr>
+        <tr><td>4</td><td>Menganalisis</td><td>Membedakan, Membandingkan, Menguraikan</td><td>HOTS</td></tr>
+        <tr><td>3</td><td>Menerapkan</td><td>Menggunakan, Mendemonstrasikan, Memecahkan</td><td>LOTS</td></tr>
+        <tr><td>2</td><td>Memahami</td><td>Menjelaskan, Meringkas, Menyimpulkan</td><td>LOTS</td></tr>
+        <tr><td>1</td><td>Mengingat</td><td>Menyebutkan, Mendefinisikan, Mengidentifikasi</td><td>LOTS</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- NAVIGASI -->
+  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="index.html" class="btn-ghost">← Kembali ke Beranda</a>
+    <a href="abcd.html" class="btn-primary">Lanjut ke Metode ABCD →</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>Modul <strong>Menulis Tujuan Pembelajaran</strong> · Dikembangkan untuk mendukung kualitas pengajaran di perguruan tinggi</p>
+  </div>
+</footer>
+
+<script>
+function toggleLevel(el, id) {
+  const panel = document.getElementById('detail-' + id);
+  const isActive = el.classList.contains('active');
+
+  // close all
+  document.querySelectorAll('.bloom-level').forEach(l => l.classList.remove('active'));
+  document.querySelectorAll('.detail-panel').forEach(p => p.classList.remove('show'));
+
+  if (!isActive) {
+    el.classList.add('active');
+    panel.classList.add('show');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+}
+</script>
+
+</body>
+</html>
