@@ -32,5 +32,12 @@ const modul = [
     deskripsi: "Kumpulan sumber bacaan terpilih untuk memperdalam pemahaman tentang desain tujuan pembelajaran.",
     link: "referensi.html",
     label: "Lihat Referensi →"
+  },
+   {
+    nomor: "05",
+    judul: "Kesimpulan",
+    deskripsi: "Apa ide utama yang perlu anda ketahui soal learning objective",
+    link: "referensi.html",
+    label: "CEKIBROTT →"
   }
 ];
