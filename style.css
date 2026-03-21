@@ -85,6 +85,7 @@ nav a {
     border-radius: 20px;
     background-color: green;
     margin: 5px;
+    align-self: center;
 }
 nav a:hover { color: var(--white); }
 nav a.active { color: var(--gold2); border-bottom-color: var(--gold2); }
