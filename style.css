@@ -306,7 +306,12 @@ footer p {
 }
 
 footer strong { color: var(--gold2); font-weight: 500; }
-
+#modul-container {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+  margin-top: 24px;
+}
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(20px); }
