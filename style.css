@@ -428,13 +428,10 @@ footer strong { color: var(--gold2); font-weight: 500; }
   footer { padding: 24px; }
   nav a { padding: 0 10px; font-size: 11px; }
   .hero-image { display: none; }
-  .hero-inner {width: 100%}
-  .hero-inner-inner{display:block;}
-  nav a:not(.fikri-link) {display: none;}
-
-@media (max-width: 500px) {
-  .hero-image { display: none; }
-  .hero-inner {width: 100%}
-  .hero-inner-inner{display:block;}
-  nav a:not(.fikri-link) {display: none;}
+  .hero-inner { width: 100%; }
+  .hero-inner-inner { display: block; }
+  nav a:not(.fikri-link) { display: none; }
+  
+  #sidebar { width: 100%; padding: 20px 40px; margin: 20px 0; }
+  .main-with-sidebar { flex-direction: column; }
 }
