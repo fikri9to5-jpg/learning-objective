@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metode ABCD · Modul Menulis Tujuan Pembelajaran</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .abcd-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+
+    .abcd-card {
+      background: var(--white);
+      border: 1px solid var(--gray);
+      border-radius: 4px;
+      padding: 28px 24px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .abcd-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(27,42,74,.1); }
+
+    .abcd-letter {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem; font-weight: 700;
+      color: var(--gray);
+      position: absolute;
+      top: 8px; right: 16px;
+      line-height: 1;
+      user-select: none;
+    }
+
+    .abcd-card h3 { position: relative; z-index: 1; margin-bottom: 6px; }
+    .abcd-card p { position: relative; z-index: 1; font-size: 13px; }
+
+    .abcd-card:nth-child(1) { border-top: 3px solid #2e86c1; }
+    .abcd-card:nth-child(2) { border-top: 3px solid #1e8449; }
+    .abcd-card:nth-child(3) { border-top: 3px solid #b7950b; }
+    .abcd-card:nth-child(4) { border-top: 3px solid #922b21; }
+
+    .example-full {
+      background: var(--navy);
+      border-radius: 6px;
+      padding: 32px;
+      margin: 24px 0;
+      color: var(--white);
+    }
+
+    .example-full .label {
+      font-size: 10px; font-weight: 600;
+      letter-spacing: .15em; text-transform: uppercase;
+      color: var(--gold2); margin-bottom: 16px;
+    }
+
+    .lo-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; line-height: 1.7;
+      color: var(--white);
+      margin-bottom: 24px;
+    }
+
+    .lo-breakdown {
+      display: flex; flex-direction: column; gap: 10px;
+    }
+
+    .lo-part {
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+
+    .lo-part-badge {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .1em;
+      padding: 3px 8px; border-radius: 2px;
+      flex-shrink: 0; margin-top: 2px;
+      min-width: 80px; text-align: center;
+    }
+
+    .badge-a { background: #2e86c1; color: white; }
+    .badge-b { background: #1e8449; color: white; }
+    .badge-c { background: #b7950b; color: white; }
+    .badge-d { background: #922b21; color: white; }
+
+    .lo-part-text { font-size: 13px; color: #8a9ab8; line-height: 1.6; }
+
+    .kesalahan-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .kesalahan-card {
+      border-radius: 4px;
+      padding: 20px;
+    }
+
+    .kesalahan-card.salah {
+      background: #fdf2f2;
+      border: 1px solid #f5c6c6;
+    }
+
+    .kesalahan-card.benar {
+      background: #f0f9f0;
+      border: 1px solid #c6e8c6;
+    }
+
+    .kesalahan-label {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .kesalahan-card.salah .kesalahan-label { color: #c0392b; }
+    .kesalahan-card.benar .kesalahan-label { color: #1e8449; }
+
+    .kesalahan-text { font-size: 13px; color: var(--muted); line-height: 1.6; font-style: italic; }
+
+    @media (max-width: 600px) {
+      .kesalahan-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-title"></a>
+    <nav id="navbar"></nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner">
+    <div class="hero-breadcrumb fade-up">Bagian 02</div>
+    <h1 class="fade-up delay-1">Metode <em>ABCD</em></h1>
+    <p class="fade-up delay-2">Kerangka penulisan tujuan pembelajaran yang memastikan setiap pernyataan memuat empat komponen esensial: Audience, Behavior, Condition, dan Degree.</p>
+  </div>
+</section>
+
+<main>
+  <!-- SIDEBAR -->
+  <div class="main-with-sidebar">
+  <div class="content">
+  <!-- PENGANTAR -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Pengantar</div>
+    <h2>Mengapa Metode ABCD?</h2>
+    <p>Tujuan pembelajaran yang baik bukan hanya menyatakan topik yang akan dibahas, tetapi secara eksplisit menggambarkan apa yang akan mampu dilakukan mahasiswa setelah pembelajaran selesai.</p>
+    <p>Metode ABCD, yang dipopulerkan oleh Robert Mager, memberikan kerangka yang memastikan setiap tujuan pembelajaran memuat informasi yang cukup untuk dapat diobservasi dan diukur.</p>
+
+    <blockquote>
+      <p>"Tujuan pembelajaran yang baik adalah tujuan yang dapat diuji — jika tidak bisa diukur, ia bukan tujuan pembelajaran."</p>
+    </blockquote>
+  </section>
+
+  <!-- EMPAT KOMPONEN -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Empat Komponen</div>
+    <h2>Komponen ABCD</h2>
+
+    <div class="abcd-grid">
+
+      <div class="abcd-card fade-up">
+        <div class="abcd-letter">A</div>
+        <h3>Audience</h3>
+        <p>Siapa yang menjadi subjek tujuan pembelajaran? Deskripsikan secara spesifik siapa yang diharapkan mencapai tujuan ini.</p>
+        <p style="margin-top: 10px; font-size: 12px; color: var(--gold);"><strong>Contoh:</strong> "Mahasiswa semester tiga..."</p>
+      </div>
+
+      <div class="abcd-card fade-up delay-1">
+        <div class="abcd-letter">B</div>
+        <h3>Behavior</h3>
+        <p>Perilaku atau kemampuan apa yang diharapkan? Gunakan kata kerja operasional dari Taksonomi Bloom yang dapat diobservasi.</p>
+        <p style="margin-top: 10px; font-size: 12px; color: #1e8449;"><strong>Contoh:</strong> "...mampu merancang..."</p>
+      </div>
+
+      <div class="abcd-card fade-up delay-2">
+        <div class="abcd-letter">C</div>
+        <h3>Condition</h3>
+        <p>Dalam kondisi atau situasi apa kemampuan tersebut ditunjukkan? Deskripsikan konteks, alat, atau batasan yang relevan.</p>
+        <p style="margin-top: 10px; font-size: 12px; color: #b7950b;"><strong>Contoh:</strong> "...dengan menggunakan template yang tersedia..."</p>
+      </div>
+
+      <div class="abcd-card fade-up delay-3">
+        <div class="abcd-letter">D</div>
+        <h3>Degree</h3>
+        <p>Seberapa baik kemampuan tersebut harus ditunjukkan? Tentukan standar minimum keberhasilan yang dapat diukur.</p>
+        <p style="margin-top: 10px; font-size: 12px; color: #922b21;"><strong>Contoh:</strong> "...dengan tingkat akurasi minimal 80%."</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CONTOH LENGKAP -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Contoh Penerapan</div>
+    <h2>Membedah Tujuan Pembelajaran</h2>
+    <p>Perhatikan contoh tujuan pembelajaran berikut dan identifikasi setiap komponen ABCD di dalamnya.</p>
+
+    <div class="example-full">
+      <div class="label">Contoh Tujuan Pembelajaran</div>
+      <div class="lo-text">
+        "Mahasiswa program studi Pendidikan mampu merancang instrumen asesmen formatif untuk mata kuliah yang mereka ampu, dengan menggunakan panduan rubrik yang telah disediakan, sehingga menghasilkan minimal tiga bentuk asesmen yang berbeda dan selaras dengan tujuan pembelajaran."
+      </div>
+
+      <div class="lo-breakdown">
+        <div class="lo-part">
+          <span class="lo-part-badge badge-a">Audience</span>
+          <span class="lo-part-text">Mahasiswa program studi Pendidikan</span>
+        </div>
+        <div class="lo-part">
+          <span class="lo-part-badge badge-b">Behavior</span>
+          <span class="lo-part-text">mampu merancang instrumen asesmen formatif</span>
+        </div>
+        <div class="lo-part">
+          <span class="lo-part-badge badge-c">Condition</span>
+          <span class="lo-part-text">dengan menggunakan panduan rubrik yang telah disediakan</span>
+        </div>
+        <div class="lo-part">
+          <span class="lo-part-badge badge-d">Degree</span>
+          <span class="lo-part-text">menghasilkan minimal tiga bentuk asesmen yang berbeda dan selaras dengan tujuan pembelajaran</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KESALAHAN UMUM -->
+  <section style="margin-bottom: 48px;">
+    <div class="section-label">Kesalahan Umum</div>
+    <h2>Yang Perlu Dihindari</h2>
+    <p>Berikut adalah pola kesalahan yang paling sering ditemukan dalam penulisan tujuan pembelajaran, beserta perbaikannya.</p>
+
+    <div class="kesalahan-grid">
+      <div class="kesalahan-card salah">
+        <div class="kesalahan-label">✗ Kurang Tepat</div>
+        <div class="kesalahan-text">"Mahasiswa memahami konsep statistik deskriptif."</div>
+      </div>
+      <div class="kesalahan-card benar">
+        <div class="kesalahan-label">✓ Lebih Tepat</div>
+        <div class="kesalahan-text">"Mahasiswa mampu menghitung mean, median, dan modus dari data mentah yang diberikan tanpa bantuan kalkulator dengan tingkat akurasi 100%."</div>
+      </div>
+
+      <div class="kesalahan-card salah">
+        <div class="kesalahan-label">✗ Kurang Tepat</div>
+        <div class="kesalahan-text">"Mahasiswa mengetahui cara membuat presentasi yang baik."</div>
+      </div>
+      <div class="kesalahan-card benar">
+        <div class="kesalahan-label">✓ Lebih Tepat</div>
+        <div class="kesalahan-text">"Mahasiswa mampu menyusun slide presentasi menggunakan prinsip desain visual yang telah dipelajari, sehingga mendapat skor minimal 75 dari 100 berdasarkan rubrik yang ditetapkan."</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NAVIGASI -->
+  <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;">
+    <a href="bloom.html" class="btn-ghost">← Taksonomi Bloom</a>
+    <a href="latihan.html" class="btn-primary">Lanjut ke Latihan →</a>
+  </div></div>
+  <aside id="sidebar"></aside>
+</div>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>Modul <strong>Menulis Tujuan Pembelajaran</strong> · Dikembangkan untuk mendukung kualitas pengajaran di perguruan tinggi</p>
+  </div>
+</footer>
+<script src="data.js"></script>
+<script>
+  const currentPage = window.location.pathname.split('/').pop();
+  for (let i = 0; i < navbar.length; i++) {
+  const isActive = navbar[i].link === currentPage ? 'active' : '';
+  const customClass = navbar[i].class ? navbar[i].class : isActive;
+  document.getElementById('navbar').innerHTML += `
+    <a href="${navbar[i].link}" class="${customClass}" target="${navbar[i].target || ''}">
+  ${navbar[i].label}</a>
+  `;
+  }
+
+  document.querySelector('.site-title').innerHTML = `
+    <img src="${siteConfig.logo}" 
+         alt="${siteConfig.logoAlt}" 
+         height="${siteConfig.logoHeight}">
+  `;
+</script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modul Menulis Tujuan Pembelajaran</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a href="index.html" class="site-title"></a>
+    <nav id="navbar"></nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="hero-inner-inner">
+  <div class="hero-inner">
+    <div class="hero-breadcrumb fade-up">Modul Pembelajaran · Instructional Design</div>
+    <h1 class="fade-up delay-1">Tujuan Pembelajaran yang <em>Baik </em>adalah Fondasi Kuliah yang <em>Efektif</em></h1>
+    <p class="fade-up delay-2">Modul ini dirancang untuk membantu dosen memahami dan menerapkan prinsip penulisan tujuan pembelajaran yang terukur, relevan, dan berorientasi pada capaian mahasiswa.</p>
+  </div>
+  <img src="Background-0.png" alt="deskripsi" class="hero-image" id="hero-img">
+  </div>
+</section>
+
+<main>
+
+  <!-- PENGANTAR -->
+  <section data-aos="fade-up" style="margin-bottom: 56px;">
+    <div class="section-label">Pengantar</div>
+    <h2>Mengapa Tujuan Pembelajaran Penting?</h2>
+    <p>Tujuan pembelajaran bukan sekadar formalitas administratif. Ia adalah peta jalan yang menentukan apa yang akan diajarkan, bagaimana cara mengajarkannya, dan bagaimana keberhasilan mahasiswa akan diukur.</p>
+    <p>Tanpa tujuan pembelajaran yang jelas dan terukur, perkuliahan berisiko menjadi transfer informasi satu arah — bukan proses belajar yang bermakna.</p>
+
+    <blockquote>
+      <p>"Jika Anda tidak tahu ke mana Anda pergi, setiap jalan akan membawa Anda ke sana." — Mager, 1962</p>
+    </blockquote>
+  </section>
+
+  <!-- MODUL -->
+  <section data-aos="fade-up" style="margin-bottom: 56px;">
+    <div class="section-label">Isi Modul</div>
+    <h2>Apa yang Akan Dipelajari?</h2>
+    <p>Modul ini terdiri dari empat bagian utama yang dirancang secara berurutan — dari pemahaman konseptual hingga praktik langsung.</p>
+    <div class="cards-grid" id="modul-container"></div>
+  </section>
+
+  <!-- CARA MENGGUNAKAN -->
+  <section data-aos="fade-up" style="margin-bottom: 56px;">
+    <div class="section-label">Panduan Penggunaan</div>
+    <h2>Cara Menggunakan Modul Ini</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Langkah</th>
+          <th>Aktivitas</th>
+          <th>Estimasi Waktu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>1</strong></td>
+          <td>Baca halaman Taksonomi Bloom dan pahami setiap levelnya</td>
+          <td>15 menit</td>
+        </tr>
+        <tr>
+          <td><strong>2</strong></td>
+          <td>Pelajari komponen ABCD dan contoh penerapannya</td>
+          <td>15 menit</td>
+        </tr>
+        <tr>
+          <td><strong>3</strong></td>
+          <td>Kerjakan latihan interaktif menulis tujuan pembelajaran</td>
+          <td>20 menit</td>
+        </tr>
+        <tr>
+          <td><strong>4</strong></td>
+          <td>Terapkan pada mata kuliah yang Anda ampu</td>
+          <td>Mandiri</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- CTA -->
+  <section data-aos="fade-up" style="
+    background: var(--navy);
+    border-radius: 6px;
+    padding: 48px;
+    text-align: center;
+  ">
+    <div class="section-label" style="justify-content: center;">Mulai Sekarang</div>
+    <h2 style="color: var(--white); margin-bottom: 12px;">Siap Menulis Tujuan Pembelajaran yang Efektif?</h2>
+    <p style="color: #8a9ab8; max-width: 480px; margin: 0 auto 28px;">Mulai dari memahami Taksonomi Bloom sebagai fondasi sebelum belajar menulis tujuan pembelajaran dengan metode ABCD.</p>
+    <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
+      <a href="bloom.html" class="btn-primary">Mulai dari Taksonomi Bloom →</a>
+      <a href="latihan.html" class="btn-ghost" style="color: var(--white); border-color: #4a5a78;">Langsung ke Latihan</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p>Modul <strong>Menulis Tujuan Pembelajaran</strong> · Dikembangkan untuk mendukung kualitas pengajaran di perguruan tinggi</p>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+  const currentPage = window.location.pathname.split('/').pop();
+  for (let i = 0; i < navbar.length; i++) {
+  const isActive = navbar[i].link === currentPage ? 'active' : '';
+  const customClass = navbar[i].class ? navbar[i].class : isActive;
+  document.getElementById('navbar').innerHTML += `
+    <a href="${navbar[i].link}" class="${customClass}" target="${navbar[i].target || ''}">
+  ${navbar[i].label}</a>
+  `;
+  }
+
+  document.querySelector('.site-title').innerHTML = `
+    <img src="${siteConfig.logo}" 
+         alt="${siteConfig.logoAlt}" 
+         height="${siteConfig.logoHeight}">
+  `;
+
+let currentImg = 0;
+
+setInterval(function() {
+  currentImg++;
+  if (currentImg >= heroImages.length) {
+    currentImg = 0;
+  }
+
+  const img = document.getElementById('hero-img');
+  img.classList.remove('fade');       // hapus class dulu
+  void img.offsetWidth;               // paksa browser "reset"
+  img.src = heroImages[currentImg].src;
+  img.classList.add('fade');          // tambah lagi supaya animasi jalan
+}, 3000);
+
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>
